@@ -1,0 +1,41 @@
+* Gebruik PRO-GEN 3.22 in Ubuntu Linux
+Ik gebruik al jaren het programma [[https://www.pro-gen.nl/nlhome.htm][PRO-GEN]] om mijn genealogische gegevens op te slaan en mijn [[https://prevos.net/nl/][genealogie website]] is bijna geheel met dit programma vervaardigd.
+
+PRO-GEN draait echter alleen op Windows en niet in Linux. Linux genealogie software, zoals bijvoorbeeld [[https://gramps-project.org/introduction-WP/][Gramps]], maar ik ben zo gewend aan dit oude programma dat ik liever niet over schakel. De vraag is dus hoe je PRO-GEN in Linux kunt gebruiken?
+
+De instructies zijn mede mogelijk gemaakt door advies van [[http://www.henk-weltje.nl/][Henk Weltje]].
+
+** Installer PRO-GEN 3.22 in Ubuntu
+Gebruik de volgende stappen om PRO-GEN 3.22 in Linux te installeren. Deze instructies zijn geschreven en getest in Ubuntu 16.04 (64 bit), maar werken in principe voor iedere distributie. Deze instructies zouden ook moeten werken in Apple OS.X, aangezien het ook een *nix systeem is.
+
+- Installeer [[https://www.winehq.org/][WINE]] op je computer. Dit is een programma on Windows software onder Linux te laten draaien. Gebruik sudo apt-get install wine
+- Download het [[http://www.pro-gen.nl/setup-pg322-nl.exe][PRO-GEN 3.22]]  installatie bestand.
+- Ga naar de map waar =setup-pg322-nl.exe= staat.
+- Installeer PRO-GEN met =wine setup-pg322-nl=.
+- De demo versie van PRO-GEN wordt nu geïnstalleerd. Accepteer alle standaard instellingen.
+- De C-schijf in WINE staat in een verborgen map. PRO-GEN staat in  =~/.wine/drive_c/PG30/=.
+- Kopieer het PRO-GEN.USR bestand van je oude installatie naar de PRO-GEN map.
+
+PRO-GEN is nu geïnstalleerd en kan met deze instructies worden opgestart:
+
+#+BEGIN_SOURCE
+cd ~/.wine/drive_c/PG30/
+wineconsole PGWINPRN.EXE
+#+END_Source
+
+** Ubuntu Package
+Deze instructies zijn samengevat in een [[https://github.com/pprevos/pro-gen_linux/blob/master/pro-gen_3.22.deb][Ubuntu package]]. Download dit bestand and installeer it zoals ieder ander programma. Het bestand maakt twee commandos aan:
+
+- =install-pro-gen=: Installeer PRO-GEN. Het script laadt het installatie bestand, installeert het met WINE en copieert het =PRO-GEN.KEY= bestand, indien aanwezig.
+- =pro-gen=: Start PRO-GEN
+
+** Gebruik PRO-GEN 3.22 in Ubuntu
+De bureaublad koppeling voor PGZOEK werkt, maar de koppeling voor PRO-GEN werkt niet zonder aanpassing.
+
+Het scherm zal erg klein zijn, maar dat kan makkelijk worden voorkomen.
+
+- Rechter klik muis in het scherm.
+- Kies "Eigenschappen" en daarna "Lettertype".
+- Kies "Dejavu Sans Mono" en grootte 28
+- Klik "OK"
+- Bewaar deze instelling voor latere sessies.
