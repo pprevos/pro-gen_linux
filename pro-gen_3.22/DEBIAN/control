@@ -1,0 +1,9 @@
+Package: Pro-Gen
+Version: 3.22
+Section: base
+Priority: optional
+Architecture: i386
+Depends: wine
+Maintainer: Peter Prevos <peter@prevos.net>
+Description: Pro-Gen installatie voor Linux
+

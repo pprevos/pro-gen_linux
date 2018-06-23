@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/.wine/drive_c/PG30
+wineconsole PGWINPRN.EXE
+

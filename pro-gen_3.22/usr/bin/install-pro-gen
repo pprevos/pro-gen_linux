@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ -f /usr/bin/wineconsole ]
+	then
+		echo "Wine is reed geïnstalleerd."
+	else
+		sudo apt-get install wine
+fi
+
+if [ -f setup-pg322-nl.exe ]
+	then
+		echo "Installatie bestand gevonden."
+	else
+		echo "Installatie bestand downloaden."
+		wget http://www.pro-gen.nl/setup-pg322-nl.exe
+fi
+
+echo "PRO-GEN wordt geïnstalleerd."
+
+echo "Gebruik alle standard instellingen."
+
+wine setup-pg322-nl.exe
+
+if [ -f PRO-GEN.USR ]
+	then
+		echo "Registratie bestand kopiëren."
+		cp PRO-GEN.USR  ~/.wine/drive_c/PG30/
+	else
+		echo "Registratie bestand niet gevonden."
+fi
+
+echo "Opstart bestand creëren"
+
+cat > pro-gen << EOF
+#!/bin/bash
+
+cd ~/.wine/drive_c/PG30
+wineconsole PGWINPRN.EXE
+EOF
+
+sudo mv pro-gen /usr/bin/pro-gen
+sudo chmod +x /usr/bin/pro-gen
+
+echo "Type 'pro-gen' in de console om het programma te starten."
+
